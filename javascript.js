@@ -26,12 +26,13 @@ function getPlayerChoice() {
 }
 
 function playRound(playerSelection,computerSelection) {
-    let currentMatch = `${playerSelection} vs ${computerSelection}`;
+    let currentMatch = `(YOU)${playerSelection} vs ${computerSelection}`;
+    let draw = `${currentMatch} = DRAW`;
     let win = `${currentMatch} = YOU WIN`;
     let lose = `${currentMatch} = YOU LOSE`;
     // DRAW
     if (playerSelection === computerSelection) {
-        console.log("DRAW");
+        console.log(draw);
         return;
     }
     else {
@@ -66,18 +67,10 @@ function playRound(playerSelection,computerSelection) {
 }
 function game() {
     for (let i=0; i<5; i++) {
-        getComputerChoice();
-        getPlayerChoice();
-        playRound();
+        let playerSelection = getPlayerChoice();
+        let computerSelection = getComputerChoice();
+        playRound(playerSelection,computerSelection);
     }
 }
 
-let playerSelection = getPlayerChoice();
-let computerSelection = getComputerChoice();
-
-console.log(`PLAYER: ${playerSelection}`);
-console.log(`COMPUTER: ${computerSelection}`);
-console.log(playRound(playerSelection,computerSelection));
-
-
-
+console.log(game());

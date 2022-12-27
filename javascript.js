@@ -1,3 +1,6 @@
+let W = 0;
+let L = 0;
+
 function getComputerChoice(){
     let computerChoice = Math.floor(Math.random()*3);
     switch(computerChoice) {
@@ -30,42 +33,59 @@ function playRound(playerSelection,computerSelection) {
     let draw = `${currentMatch} = DRAW`;
     let win = `${currentMatch} = YOU WIN`;
     let lose = `${currentMatch} = YOU LOSE`;
+    let result = `Current Record: ${W}-${L}`;
+
     // DRAW
     if (playerSelection === computerSelection) {
         console.log(draw);
-        return;
+        W++;
+        L++;
+        console.log(result);
     }
     else {
     // ROCK
     if (playerSelection === "ROCK") {
         if (computerSelection === "SCISSORS") {
             console.log(win);
+            W++;
+            console.log(result);
         }
         else {
             console.log(lose);
+            L++;
+            console.log(result);
         }
     }
     // SCISSORS
     if (playerSelection === "SCISSORS") {
         if (computerSelection === "PAPER") {
             console.log(win);
+            W++;
+            console.log(result);
         }
         else {
             console.log(lose);
+            L++;
+            console.log(result);
         }
     }
     // PAPER 
     if (playerSelection === "PAPER") {
         if (computerSelection === "ROCK") {
             console.log(win);
+            W++;
+            console.log(result);
         }
         else {
             console.log(lose);
+            L++;
+            console.log(result);
         }
     }
 }
 }
 function game() {
+
     for (let i=0; i<5; i++) {
         let playerSelection = getPlayerChoice();
         let computerSelection = getComputerChoice();

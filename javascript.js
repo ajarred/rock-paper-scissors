@@ -1,4 +1,3 @@
-
 function getComputerChoice(){
     let computerChoice = Math.floor(Math.random()*3);
     switch(computerChoice) {
@@ -15,4 +14,16 @@ function getComputerChoice(){
     return computerChoice;
 }
 
-console.log(getComputerChoice());
+function getPlayerChoice() {
+    let input = prompt();
+    let filteredInput = input.toUpperCase();
+    if (filteredInput === "ROCK" || filteredInput === "PAPER" || filteredInput === "SCISSORS") {
+        return filteredInput
+    }
+    else 
+    window.alert("Invalid Input. Try Again.");
+    getPlayerChoice();
+}
+
+console.log(getPlayerChoice());
+

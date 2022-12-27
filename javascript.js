@@ -38,8 +38,6 @@ function playRound(playerSelection,computerSelection) {
     // DRAW
     if (playerSelection === computerSelection) {
         console.log(draw);
-        W++;
-        L++;
         console.log(result);
     }
     else {

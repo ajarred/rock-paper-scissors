@@ -31,45 +31,53 @@ function playRound(playerSelection,computerSelection) {
     let lose = `${currentMatch} = YOU LOSE`;
     // DRAW
     if (playerSelection === computerSelection) {
-        alert("DRAW");
+        console.log("DRAW");
         return;
     }
     else {
     // ROCK
     if (playerSelection === "ROCK") {
         if (computerSelection === "SCISSORS") {
-            alert(win);
+            console.log(win);
         }
         else {
-            alert(lose);
+            console.log(lose);
         }
     }
     // SCISSORS
     if (playerSelection === "SCISSORS") {
         if (computerSelection === "PAPER") {
-            alert(win);
+            console.log(win);
         }
         else {
-            alert(lose);
+            console.log(lose);
         }
     }
     // PAPER 
     if (playerSelection === "PAPER") {
         if (computerSelection === "ROCK") {
-            alert(win);
+            console.log(win);
         }
         else {
-            alert(lose);
+            console.log(lose);
         }
     }
 }
+}
+function game() {
+    for (let i=0; i<5; i++) {
+        getComputerChoice();
+        getPlayerChoice();
+        playRound();
+    }
 }
 
 let playerSelection = getPlayerChoice();
 let computerSelection = getComputerChoice();
 
-console.log(playerSelection);
-console.log(computerSelection);
+console.log(`PLAYER: ${playerSelection}`);
+console.log(`COMPUTER: ${computerSelection}`);
 console.log(playRound(playerSelection,computerSelection));
+
 
 

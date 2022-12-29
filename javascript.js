@@ -30,7 +30,8 @@ function getComputerChoice(){
     getPlayerChoice();
 } */
 
-function playRound(playerSelection,computerSelection) {
+function playRound(playerSelectionn) {
+    let computerSelection = computerChoice();
     let currentMatch = `(YOU)${playerSelection} vs ${computerSelection}`;
     let draw = `${currentMatch} = DRAW`;
     let win = `${currentMatch} = YOU WIN`;
@@ -42,23 +43,30 @@ function playRound(playerSelection,computerSelection) {
     if (playerSelection === computerSelection) {
         log = draw.concat("\n",record);
     }
-
     else if 
         ((playerSelection === "ROCK" && computerSelection === "SCISSORS") || 
         (playerSelection === "SCISSORS" && computerSelection === "PAPER") ||
         (playerSelection === "PAPER" && computerSelection === "ROCK")) {
         W++;
         log = win.concat("\n",record);
+        if (W==5) {
+        log = "YOU WIN";
+        disableButtons();
+        }
         }
     else {
         L++;
         log = lose.concat("\n",record);
+        if (L==5) {
+        log = "YOU LOSE";
+        disableButtons();
+        }
     }
-    console.log(log);
-    return log;
+    document.getElementById('log').innerHTML = log;
+    return;
 }
 
-/*nfunction game() {
+/*function game() {
     // for (let i=0; i<5; i++) {
        // let playerSelection = getPlayerChoice();
         let computerSelection = getComputerChoice();

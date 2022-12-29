@@ -33,62 +33,33 @@ function playRound(playerSelection,computerSelection) {
     let draw = `${currentMatch} = DRAW`;
     let win = `${currentMatch} = YOU WIN`;
     let lose = `${currentMatch} = YOU LOSE`;
-    let result = `Current Record: ${W}-${L}`;
+    let record = `Current Record: ${W}-${L}`;
+    let log = '';
 
-    // DRAW
     if (playerSelection === computerSelection) {
-        console.log(draw);
-        console.log(result);
+        log = draw.concat("\n",record);
     }
-    else {
-    // ROCK
-    if (playerSelection === "ROCK") {
-        if (computerSelection === "SCISSORS") {
-            console.log(win);
-            W++;
-            console.log(result);
-        }
-        else {
-            console.log(lose);
-            L++;
-            console.log(result);
-        }
-    }
-    // SCISSORS
-    if (playerSelection === "SCISSORS") {
-        if (computerSelection === "PAPER") {
-            console.log(win);
-            W++;
-            console.log(result);
-        }
-        else {
-            console.log(lose);
-            L++;
-            console.log(result);
-        }
-    }
-    // PAPER 
-    if (playerSelection === "PAPER") {
-        if (computerSelection === "ROCK") {
-            console.log(win);
-            W++;
-            console.log(result);
-        }
-        else {
-            console.log(lose);
-            L++;
-            console.log(result);
-        }
-    }
-}
-}
-function game() {
 
+    else if 
+        ((playerSelection === "ROCK" && computerSelection === "SCISSORS") || 
+        (playerSelection === "SCISSORS" && computerSelection === "PAPER") ||
+        (playerSelection === "PAPER" && computerSelection === "ROCK")) {
+        W++;
+        log = win.concat("\n",record);
+        }
+    else {
+        L++;
+        log = lose.concat("\n",record);
+    }
+    return log;
+}
+
+function game() {
     for (let i=0; i<5; i++) {
         let playerSelection = getPlayerChoice();
         let computerSelection = getComputerChoice();
         playRound(playerSelection,computerSelection);
     }
-}
+} 
 
-console.log(game());
+game();

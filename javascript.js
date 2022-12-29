@@ -17,16 +17,18 @@ function getComputerChoice(){
     return computerChoice;
 }
 
-function getPlayerChoice() {
+/* function getPlayerChoice() {
     let input = prompt();
     let filteredInput = input.toUpperCase();
-    if (filteredInput === "ROCK" || filteredInput === "PAPER" || filteredInput === "SCISSORS") {
+    if (filteredInput === "ROCK" || 
+        filteredInput === "PAPER" || 
+        filteredInput === "SCISSORS") {
         return filteredInput;
     }
     else 
     window.alert("Invalid Input. Try Again.");
     getPlayerChoice();
-}
+} */
 
 function playRound(playerSelection,computerSelection) {
     let currentMatch = `(YOU)${playerSelection} vs ${computerSelection}`;
@@ -35,6 +37,7 @@ function playRound(playerSelection,computerSelection) {
     let lose = `${currentMatch} = YOU LOSE`;
     let record = `Current Record: ${W}-${L}`;
     let log = '';
+    
 
     if (playerSelection === computerSelection) {
         log = draw.concat("\n",record);
@@ -51,15 +54,33 @@ function playRound(playerSelection,computerSelection) {
         L++;
         log = lose.concat("\n",record);
     }
+    console.log(log);
     return log;
 }
 
 function game() {
-    for (let i=0; i<5; i++) {
-        let playerSelection = getPlayerChoice();
+    // for (let i=0; i<5; i++) {
+       // let playerSelection = getPlayerChoice();
         let computerSelection = getComputerChoice();
         playRound(playerSelection,computerSelection);
     }
-} 
+// } 
+const buttons = document.querySelectorAll('.btn');
 
-game();
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', () => {
+    playerSelection = "ROCK";
+    game();
+});
+
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', () => {
+    playerSelection = "PAPER";
+    game();
+});
+
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', () => {
+    playerSelection = "SCISSORS";
+    game();
+});

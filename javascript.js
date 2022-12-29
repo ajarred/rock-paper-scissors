@@ -58,13 +58,20 @@ function playRound(playerSelection,computerSelection) {
     return log;
 }
 
-function game() {
+/*nfunction game() {
     // for (let i=0; i<5; i++) {
        // let playerSelection = getPlayerChoice();
         let computerSelection = getComputerChoice();
         playRound(playerSelection,computerSelection);
     }
-// } 
+// } */ 
+
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
+}
+
 const buttons = document.querySelectorAll('.btn');
 
 const rock = document.querySelector('#rock');

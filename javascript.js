@@ -1,12 +1,14 @@
 let W = 0;
 let L = 0;
 // let log = '';
-let record = '';
+// let record = '';
 
 const buttons = document.querySelectorAll('.button');
 const output = document.querySelector('#output');
 const log = document.querySelector('#log');
+const record = document.querySelector('#record');
 
+record.textContent = `Starting Record: ${W} - ${L}`;
 log.textContent = 'YOU VS COMPUTER';
 output.textContent = "GLHF<3";
 
@@ -23,37 +25,38 @@ function playRound(playerSelection) {
         (playerSelection =="PAPER" && computerSelection == "ROCK")) {
         W++;
         log.textContent = `(YOU)${playerSelection} vs ${computerSelection}(COMPUTER)= WIN`;
-        record = `Current Record: ${W}-${L}`;
+        record.textContent = `Current Record: ${W}-${L}`;
         output.textContent = "NICE";
         if (W==5) {
-            log.textContent += "</br>YOU WIN!";
+            log.textContent += "<\n>YOU WIN!";
             output.textContent = "GGS! CONGRATS";
+            record.textContent = `Final Record: ${W}-${L}`;
             W = 0;
             L = 0;
-            record = `Current Record: ${W}-${L}`;
+            
         }
         }
     else if (playerSelection == computerSelection) {
         log.textContent = `(YOU)${playerSelection} vs ${computerSelection}(COMPUTER)= DRAW`;
-        record = `Current Record: ${W}-${L}`;
+        record.textContent = `Current Record: ${W}-${L}`;
         output.textContent = "WOW";
         }
     else {
         L++;
         log.textContent = `(YOU)${playerSelection} vs ${computerSelection}(COMPUTER)= LOSE`;
-        record = `Current Record: ${W}-${L}`;
+        record.textContent = `Current Record: ${W}-${L}`;
         output.textContent = "OOF";
         if (L==5) {
-            log.textContent += "<br>YOU LOSE!";
+            log.textContent += "\nYOU LOSE!";
             output.textContent = "GGS! BETTER LUCK NEXT TIME";
+            record.textContent = `Final Record: ${W}-${L}`;
             W = 0;
             L = 0;
-            record = `Current Record: ${W}-${L}`;
         }
     }
-    document.getElementById('record').innerHTML = record;
+  //  document.getElementById('record').innerHTML = record;
    // document.getElementById('log').innerHTML = log;
-    return;
+   // return;
 }
 
 buttons.forEach(button => {

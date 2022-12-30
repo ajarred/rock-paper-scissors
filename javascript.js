@@ -1,7 +1,7 @@
 let W = 0;
 let L = 0;
 
-const buttons = document.querySelectorAll('input');
+const buttons = document.querySelectorAll('.button');
 
 function getComputerChoice(){
     let choices = ['ROCK', 'PAPER', 'SCISSORS'];
@@ -47,6 +47,6 @@ function playRound(playerSelection) {
 
 buttons.forEach(button => {
     button.addEventListener('click', function(){
-        playRound(button.value);
+        playRound(button.id);
     });
 });

@@ -10,12 +10,6 @@ function getComputerChoice(){
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
-function disableButtons() {
-    buttons.forEach(elem => {
-        elem.disabled = true;
-    })
-}
-
 function playRound(playerSelection) {
     let computerSelection = getComputerChoice();
 
@@ -27,7 +21,9 @@ function playRound(playerSelection) {
         record = `Current Record: ${W}-${L}`;
         if (W==5) {
             log += "\nYOU WIN!";
-            disableButtons();
+            W = 0;
+            L = 0;
+            record = `Current Record: ${W}-${L}`;
         }
         }
     else if (playerSelection == computerSelection) {
@@ -40,7 +36,9 @@ function playRound(playerSelection) {
         record = `Current Record: ${W}-${L}`;
         if (L==5) {
             log += "\nYOU LOSE!";
-        disableButtons();
+            W = 0;
+            L = 0;
+            record = `Current Record: ${W}-${L}`;
         }
     }
     document.getElementById('record').innerHTML = record;

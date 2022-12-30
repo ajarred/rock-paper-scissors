@@ -1,12 +1,10 @@
 let W = 0;
 let L = 0;
-// let log = '';
-// let record = '';
 
 const buttons = document.querySelectorAll('.button');
-const output = document.querySelector('#output');
-const log = document.querySelector('#log');
 const record = document.querySelector('#record');
+const log = document.querySelector('#log');
+const output = document.querySelector('#output');
 
 record.textContent = `Starting Record: ${W} - ${L}`;
 log.textContent = 'YOU VS COMPUTER';
@@ -24,13 +22,13 @@ function playRound(playerSelection) {
         (playerSelection =="SCISSORS" && computerSelection == "PAPER") ||
         (playerSelection =="PAPER" && computerSelection == "ROCK")) {
         W++;
-        log.textContent = `(YOU)${playerSelection} vs ${computerSelection}(COMPUTER)= WIN`;
         record.textContent = `Current Record: ${W}-${L}`;
+        log.textContent = `(YOU)${playerSelection} vs ${computerSelection}(COMPUTER)= WIN`;
         output.textContent = "NICE";
         if (W==5) {
             log.textContent += "<\n>YOU WIN!";
-            output.textContent = "GGS! CONGRATS";
             record.textContent = `Final Record: ${W}-${L}`;
+            output.textContent = "GGS! CONGRATS";
             W = 0;
             L = 0;
             
@@ -48,15 +46,12 @@ function playRound(playerSelection) {
         output.textContent = "OOF";
         if (L==5) {
             log.textContent += "\nYOU LOSE!";
-            output.textContent = "GGS! BETTER LUCK NEXT TIME";
             record.textContent = `Final Record: ${W}-${L}`;
+            output.textContent = "GGS! BETTER LUCK NEXT TIME";
             W = 0;
             L = 0;
         }
     }
-  //  document.getElementById('record').innerHTML = record;
-   // document.getElementById('log').innerHTML = log;
-   // return;
 }
 
 buttons.forEach(button => {

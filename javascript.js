@@ -11,16 +11,16 @@ log.textContent = 'YOU VS COMPUTER';
 output.textContent = "GLHF<3";
 
 function getComputerChoice(){
-    let choices = ['ROCK', 'PAPER', 'SCISSORS'];
+    let choices = ['SWORD', 'LANCE', 'AXE'];
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
 function playRound(playerSelection) {
     let computerSelection = getComputerChoice();
 
-    if ((playerSelection == "ROCK" && computerSelection =="SCISSORS") || 
-        (playerSelection =="SCISSORS" && computerSelection == "PAPER") ||
-        (playerSelection =="PAPER" && computerSelection == "ROCK")) {
+    if ((playerSelection == "SWORD" && computerSelection =="AXE") || 
+        (playerSelection =="AXE" && computerSelection == "LANCE") ||
+        (playerSelection =="LANCE" && computerSelection == "SWORD")) {
         W++;
         record.textContent = `Current Record: ${W}-${L}`;
         log.textContent = `(YOU)${playerSelection} vs ${computerSelection}(COMPUTER)= WIN`;

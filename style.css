@@ -16,7 +16,7 @@ body {
     display: flex;
     flex: 1;
     flex-direction: column;
-    background-color: #FCFFE9;
+    background-color: #203354;
 }
 
 .header {
@@ -74,5 +74,9 @@ img {
     justify-content: center;
     align-items: center;
     background-color: #1F2937;
+    color: white;
+}
+
+.text {
     color: white;
 }

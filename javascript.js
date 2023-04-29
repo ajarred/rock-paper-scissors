@@ -25,7 +25,7 @@ function playRound(playerSelection) {
         record.textContent = `Current Record: ${W}-${L}`;
         log.textContent = `(YOU)${playerSelection} vs ${computerSelection}(COMPUTER)= WIN`;
         output.textContent = "NICE";
-        if (W==5) {
+        if (W>4 && W-L>1) {
             log.textContent += "\nYOU WIN!";
             record.textContent = `Final Record: ${W}-${L}`;
             output.textContent = "GGS! CONGRATS";
@@ -44,7 +44,7 @@ function playRound(playerSelection) {
         log.textContent = `(YOU)${playerSelection} vs ${computerSelection}(COMPUTER)= LOSE`;
         record.textContent = `Current Record: ${W}-${L}`;
         output.textContent = "OOF";
-        if (L==5) {
+        if (L>4 && L-W>1) {
             log.textContent += "\nYOU LOSE!";
             record.textContent = `Final Record: ${W}-${L}`;
             output.textContent = "GGS! BETTER LUCK NEXT TIME";
